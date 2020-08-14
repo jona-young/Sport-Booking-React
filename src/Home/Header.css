@@ -1,0 +1,34 @@
+p, span {
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.header__link {
+    text-decoration: none;
+    color: white;
+}
+
+.header {
+    display: flex;
+    background: #4597C6;
+}
+
+.header__optionMain {
+    font-family: 'Baloo Tamma 2', sans-serif;
+    font-size: 50px;
+    margin-left: 25px;
+    margin-right: 50px;
+}
+
+.header__optionSub {
+    font-family: 'Baloo Tamma 2', sans-serif;
+    margin-top: 2rem;
+    margin-right: 50px;
+}
+
+.header__optionEnd {
+    font-family: 'Baloo Tamma 2', sans-serif;
+    padding-top: 2rem;
+    margin-left:auto;
+    margin-right:25px;}
