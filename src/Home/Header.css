@@ -4,14 +4,9 @@ p, span {
     margin-right: 2rem;
 }
 
-.header__link {
-    text-decoration: none;
-    color: white;
-}
-
 .header {
     display: flex;
-    background: #4597C6;
+    background: #FCFCFC;
 }
 
 .header__optionMain {
@@ -31,4 +26,15 @@ p, span {
     font-family: 'Baloo Tamma 2', sans-serif;
     padding-top: 2rem;
     margin-left:auto;
-    margin-right:25px;}
+    margin-right:25px;
+}
+
+.header__linkBig {
+    text-decoration: none;
+    color: #FE852A;
+}
+
+.header__link {
+    text-decoration: none;
+    color: #444444;
+}

@@ -6,7 +6,7 @@ function Header() {
   return (
     <nav className="header">
       <div className="header__optionMain">
-        <Link className="header__link" to="/">
+        <Link className="header__linkBig" to="/">
           Frame
         </Link>
       </div>
