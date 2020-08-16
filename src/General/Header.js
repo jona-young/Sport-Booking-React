@@ -12,22 +12,23 @@ function Header() {
       </div>
       <div className="header__optionSub">
         <Link className="header__link" to="/blog">
-          Blog{" "}
+          Blog
         </Link>
       </div>
       <div className="header__optionSub">
         <Link className="header__link" to="/about">
-          About{" "}
+          About
         </Link>
       </div>
+      <div className="header__optionSub">|</div>
       <div className="header__optionSub">
         <Link className="header__link" to="/tennis-book">
-          Book{" "}
+          Book
         </Link>
       </div>
       <div className="header__optionSub">
         <Link className="header__link" to="/profile">
-          Profile{" "}
+          Profile
         </Link>
       </div>
       <div className="header__optionEnd">

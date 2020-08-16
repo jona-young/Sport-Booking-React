@@ -1,8 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./Home/Header.js";
-import Footer from "./Home/Footer.js";
-import Home from "./Home/Home.js";
+import Header from "./General/Header.js";
+import Footer from "./General/Footer.js";
+import Home from "./General/Home.js";
+import Blog from "./General/Blog.js";
+import Book from "./Book/Book.js";
 import "./App.css";
 
 function App() {
@@ -12,7 +14,7 @@ function App() {
         <Switch>
           <Route path="/blog">
             <Header />
-            <h2>Blog Articles on Scroll/Paginated</h2>
+            <Blog />
             <Footer />
           </Route>
           <Route path="/about">
@@ -22,7 +24,7 @@ function App() {
           </Route>
           <Route path="/tennis-book">
             <Header />
-            <h2>Tennis Booking Calendar System</h2>
+            <Book />
             <Footer />
           </Route>
           <Route path="/profile">

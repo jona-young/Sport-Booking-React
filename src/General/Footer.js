@@ -5,10 +5,9 @@ import "./Footer.css";
 function Footer() {
   return (
     <div className="footer">
-      ---------
-      <br />
-      <span>Contact Us Information</span>
-      <span>Website Legend</span>
+      <p>-------------------------</p>
+      <span className="footer__text">Contact Us Information</span>
+      <span className="footer__text">Website Legend</span>
     </div>
   );
 }
