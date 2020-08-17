@@ -4,7 +4,7 @@ import Header from "./General/Header.js";
 import Footer from "./General/Footer.js";
 import Home from "./General/Home.js";
 import Blog from "./General/Blog.js";
-import Book from "./Book/Book.js";
+import Schedule from "./Book/Schedule.js";
 import "./App.css";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
           </Route>
           <Route path="/tennis-book">
             <Header />
-            <Book />
+            <Schedule />
             <Footer />
           </Route>
           <Route path="/profile">
