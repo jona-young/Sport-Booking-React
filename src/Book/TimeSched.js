@@ -1,17 +1,34 @@
+import React, { useState, useEffect } from "react";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import format from "date-fns/format";
 import addHours from "date-fns/addHours";
-import React from "react";
 
 function TimeSched({ curDate }) {
-  const dateFormat = "d-MM-yyyy-p";
+  const [courtBookings, setCourtBookings] = useState([{}]);
+  const dateFormat = "yyyy-MM-d-p";
   const rows = [];
   let curHours = setHours(curDate, 7);
   let curTime = setMinutes(curHours, 0);
   let endHours = setHours(curDate, 22);
   let endTime = setMinutes(endHours, 0);
   let days = [];
+
+  //If the component updates or mounts, call fetchBookings()
+  useEffect(() => {
+    fetchBookings();
+  }, []);
+
+  //Pulls the list of tennis bookings
+  //TODO: Currently pulls ALL tennis bookings...can you either pull all bookings on the day of
+  //TODO: OR pull the bookings of the specific curTime which is a date and time element...
+  const fetchBookings = () => {
+    console.log("Fetching...");
+
+    fetch("http://127.0.0.1:8000/api/tbook-list/")
+      .then((response) => response.json())
+      .then((data) => setCourtBookings(data));
+  };
 
   //Number of rows is denoted by the while loop (below)...could just set another for loop with the time counter
   while (curTime <= endTime) {
@@ -23,16 +40,20 @@ function TimeSched({ curDate }) {
             className="sched__col cell coltime"
             key={`Time-${format(curTime, "p")}`}
           >
-            {/* TODO: This is where you place pre-booked court times to show the court has been booked */}
             {format(curTime, "p")}
           </div>
         );
       } else {
-        //TODO: This is where you can give each cell a name value based off row (hour) and column (court)
-        //TODO: which will be useful in sending form information to DRF API.
-
-        //TODO: Also this is where you run a nested IF statement if the date, time, and court is already booked?
-        //TODO: ...See conditional in Book.JS because I deleted the logic below
+        //TODO: Set if statement if (court booking on curTime & on specific court), then display from DRF API
+        //TODO: curtime match with court_date & court_time on django & specific court off i and court_number
+        {
+          /*
+        if (format(curTime, someDateFormat) "search is true within fetchTasksData of court_date & court_time"
+            && strVar(i) "search is true within fetchTasksData of court_number")
+        ? days.push('Booked Court Information')
+        : days.push('Book a Court Cell Below')
+        */
+        }
         days.push(
           <div
             className="sched__col cell"
