@@ -62,15 +62,13 @@ schedule__header {
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
-    border-bottom: 2px solid lightgray;
-    padding-top: 1rem;
+    border-bottom: 2px solid black;
     font-family: "Baloo Tamma 2", sans-serif;
 }
 
 .sched__button {
-    margin-top: 1rem;
-    margin-left:50px;
-    margin-right:50px;
+    margin-top: 2rem;
+    background:orange;
 }
 
 .bold {
