@@ -5,6 +5,7 @@ import Footer from "./General/Footer.js";
 import Home from "./General/Home.js";
 import Blog from "./General/Blog.js";
 import Schedule from "./Book/Schedule.js";
+import BookForm from "./Book/BookForm.js";
 import "./App.css";
 
 function App() {
@@ -25,6 +26,11 @@ function App() {
           <Route path="/tennis-book">
             <Header />
             <Schedule />
+            <Footer />
+          </Route>
+          <Route path="/tennis-form">
+            <Header />
+            <BookForm />
             <Footer />
           </Route>
           <Route path="/profile">

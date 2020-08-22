@@ -66,9 +66,9 @@ schedule__header {
     font-family: "Baloo Tamma 2", sans-serif;
 }
 
-.sched__button {
+.sched__link {
     margin-top: 2rem;
-    background:orange;
+    text-decoration: none;
 }
 
 .bold {
