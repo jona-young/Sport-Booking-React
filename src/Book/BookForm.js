@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import "./BookForm.css";
 
 //TODO: Figure out how to pass courtbooking cell values depending on court number and time to the form...
 function BookForm() {
+  let data = useLocation();
   //Sets the item that will be pushed to DRF API to create court booking
   const [currentItem, setCurrentItem] = useState({
     id: null,
-    court_date: "",
-    court_time: "",
-    court_number: "",
-    court_play: "",
+    court_date: data.state.court_d ? data.state.court_d : "",
+    court_time: data.state.court_t ? data.state.court_t : "",
+    court_number: data.state.court_n ? data.state.court_n : "1",
+    court_play: "0",
     comments: "",
     player1: "",
     player2: "",
@@ -91,8 +92,11 @@ function BookForm() {
           <input
             type="date"
             onChange={handleChange}
+            className="form__input"
             name="court_date"
-            value={currentItem.court_date}
+            value={
+              data.state.court_d ? data.state.court_d : currentItem.court_date
+            }
             placeholder="YYYY-MM-DD"
           />
         </label>
@@ -100,31 +104,47 @@ function BookForm() {
           Court Time <br />
           <input
             onChange={handleChange}
+            className="form__input"
             name="court_time"
-            value={currentItem.court_time}
+            value={
+              data.state.court_t ? data.state.court_t : currentItem.court_time
+            }
           />
         </label>
         <label className="form__field">
           Court Number <br />
-          <input
+          <select
             onChange={handleChange}
+            className="form__input"
             name="court_number"
-            value={currentItem.court_number}
-          />
+            value={
+              data.state.court_n ? data.state.court_n : currentItem.court_number
+            }
+          >
+            <option value="1">Court 1</option>
+            <option value="2">Court 2</option>
+            <option value="3">Court 3</option>
+            <option value="4">Court 4</option>
+          </select>
         </label>
         <label className="form__field">
           Court Type (1 for Singles, 0 for Doubles) <br />
-          <input
+          <select
             onChange={handleChange}
+            className="form__input"
             name="court_play"
             value={currentItem.court_play}
-          />
+          >
+            <option value="0">Doubles</option>
+            <option value="1">Singles</option>
+          </select>
         </label>
         <label className="form__field">
           Player <br />
           <input
             type="text"
             onChange={handleChange}
+            className="form__input"
             name="player1"
             value={currentItem.player1}
           />
@@ -134,6 +154,7 @@ function BookForm() {
           <input
             type="text"
             onChange={handleChange}
+            className="form__input"
             name="player2"
             value={currentItem.player2}
           />
@@ -146,6 +167,7 @@ function BookForm() {
             <input
               type="text"
               onChange={handleChange}
+              className="form__input"
               name="player3"
               value={currentItem.player3}
             />
@@ -159,6 +181,7 @@ function BookForm() {
             <input
               type="text"
               onChange={handleChange}
+              className="form__input"
               name="player4"
               value={currentItem.player4}
             />
@@ -169,20 +192,11 @@ function BookForm() {
           Comments <br />
           <textarea
             onChange={handleChange}
+            className="form__input"
             name="comments"
             value={currentItem.comments}
             rows="7"
             cols="30"
-          />
-        </label>
-        <label className="form__field">
-          Booked by <br />
-          <input
-            type="text"
-            onChange={handleChange}
-            name="author"
-            value={currentItem.author}
-            readOnly
           />
         </label>
         <input id="submit" className="form__submit" type="submit" name="Add" />

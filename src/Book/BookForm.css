@@ -14,6 +14,11 @@
     margin-bottom: 1rem;
 }
 
+.form__input {
+    font-weight: bold;
+    text-align: center;
+}
+
 .form__submit {
     width: 200px;
 }

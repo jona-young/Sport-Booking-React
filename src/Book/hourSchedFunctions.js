@@ -1,10 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const bookACourt = (timeSlots, courtCode) => {
+export const bookACourt = (timeSlots, courtCode, courtTime, courtDate, i) => {
   timeSlots.push(
     <div className="sched__col cell" key={courtCode}>
-      <Link className="sched__link" to="/tennis-form">
+      <Link
+        className="sched__link"
+        to={{
+          pathname: "/tennis-form",
+          state: {
+            court_d: courtDate,
+            court_t: courtTime,
+            court_n: i,
+          },
+        }}
+      >
         Book a Court!
       </Link>
     </div>
@@ -18,7 +28,7 @@ export const bookedCourt = (timeSlots, courtCode, i, courtBookings, bx) => {
       <br />
       Court {courtBookings[bx].court_number}
       <br />
-      Booked by - {courtBookings[bx].author}
+      Booked by - {courtBookings[bx].player1}
     </div>
   );
 };

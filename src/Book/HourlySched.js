@@ -14,12 +14,13 @@ function HourlySched({ curDate, courtBookings }) {
   let timeSlots = [];
   let curTime = setMinutes(setHours(curDate, 7), 0);
   let endTime = setMinutes(setHours(curDate, 22), 0);
-  const dateFormat = "yyyy-MM-d-p";
   const rows = [];
 
   //Sets # of rows from curTime & endTime (Club's Hours of Operations)
   while (curTime <= endTime) {
     const courtTime = format(curTime, "p");
+    const courtDate = format(curTime, "yyyy-MM-d");
+    console.log(courtTime);
 
     //Sets # of columns, in this case 5 for time and 4 courts
     for (let i = 0; i < 5; i++) {
@@ -28,11 +29,10 @@ function HourlySched({ curDate, courtBookings }) {
         timeCell(timeSlots, courtTime);
       } else {
         const courtNum = i.toString();
-        //TODO: Ideally used as a value to prep DRF API form for booking
-        const courtCode = courtNum + "--" + format(curTime, dateFormat);
+        const courtCode = courtNum + "--" + courtTime;
         //If no court bookings on the day, fill every cell with bookACourt
         if (courtBookings.length === 0) {
-          bookACourt(timeSlots, courtCode);
+          bookACourt(timeSlots, courtCode, courtTime, courtDate, i);
           //If there are court bookings on the day
         } else {
           //Cycles through each court booking to match to time and court cell
@@ -48,14 +48,14 @@ function HourlySched({ curDate, courtBookings }) {
               } else if (courtNum !== book.court_number) {
                 //If the object has the right time, wrong court number, and is last object in array
                 if (bx === courtBookings.length - 1) {
-                  bookACourt(timeSlots, courtCode);
+                  bookACourt(timeSlots, courtCode, courtTime, courtDate, i);
                   break;
                 }
                 continue;
               }
               //If cycles through last object in courtBooking & no courtTime match
             } else if (bx === courtBookings.length - 1) {
-              bookACourt(timeSlots, courtCode);
+              bookACourt(timeSlots, courtCode, courtTime, courtDate, i);
               break;
               //Makes sure to cycle through whole courtBooking array for match
             } else {
