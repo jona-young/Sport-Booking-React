@@ -5,6 +5,8 @@ import {
   timeCell,
   timeRow,
 } from "./hourSchedFunctions.js";
+import { deleteItem } from "./crudFunctions.js";
+import { useHistory } from "react-router-dom";
 import format from "date-fns/format";
 import addHours from "date-fns/addHours";
 import setMinutes from "date-fns/setMinutes";
@@ -12,6 +14,7 @@ import setHours from "date-fns/setHours";
 
 function HourlySched({ curDate, courtBookings }) {
   let timeSlots = [];
+  let history = useHistory();
   let curTime = setMinutes(setHours(curDate, 7), 0);
   let endTime = setMinutes(setHours(curDate, 22), 0);
   const rows = [];
@@ -42,7 +45,15 @@ function HourlySched({ curDate, courtBookings }) {
             if (courtTime === book.court_time) {
               //If courtBooking object has same time and court number as row
               if (courtNum === book.court_number) {
-                bookedCourt(timeSlots, courtCode, i, courtBookings, bx);
+                bookedCourt(
+                  timeSlots,
+                  courtCode,
+                  i,
+                  courtBookings,
+                  bx,
+                  deleteItem,
+                  history
+                );
                 break;
                 //If courtBooking object has same time but not same court number
               } else if (courtNum !== book.court_number) {

@@ -44,7 +44,7 @@ schedule__header {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    font-size: larger;
+    font-size: medium;
 }
 .row-middle {
     align-items: center;
@@ -69,6 +69,18 @@ schedule__header {
 .sched__link {
     margin-top: 2rem;
     text-decoration: none;
+}
+
+.sched__linkBook {
+    font-size: 11px;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
 }
 
 .bold {
@@ -113,7 +125,6 @@ schedule__header {
 }
 .calendar__month .sched__body .cell {
     position: relative;
-    height: 5em;
     border-right: 1px solid lightgray;
     overflow: hidden;
     background: white;
@@ -131,7 +142,9 @@ schedule__header {
 .calendar__month .sched__body .coltime {
     color: #FE852A;
     font-weight:800;
+    font-size: x-large;
     pointer-events: none;
+
 }
 .calendar__month .sched__body .cell .bg {
     font-weight: 700;
