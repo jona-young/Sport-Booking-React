@@ -32,8 +32,12 @@ function Header() {
         </Link>
       </div>
       <div className="header__optionEnd">
-        <Link className="header__link" to="/login">
-          Login & Register
+        <Link className="header__linkEnd" to="/login">
+          Login
+          {/* Also have to figure out Logout */}{" "}
+        </Link>
+        <Link className="header__linkEnd" to="/register">
+          Register
           {/* Also have to figure out Logout */}{" "}
         </Link>
       </div>

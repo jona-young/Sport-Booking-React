@@ -7,6 +7,7 @@ import "./BookForm.css";
 function BookForm() {
   let history = useHistory();
   let data = useLocation();
+  const formDel = true;
 
   //Sets the item that will be pushed to DRF API to create court booking
   const [currentItem, setCurrentItem] = useState({
@@ -15,7 +16,7 @@ function BookForm() {
     court_time: data.state.court_time ? data.state.court_time : "",
     court_number: data.state.court_number ? data.state.court_number : "1",
     court_play: data.state.court_play ? data.state.court_play : "0",
-    comments: data.state.comments ? data.state.comments : "",
+    comments: data.state.comments ? data.state.comments : "[Placeholder]",
     player1: data.state.player1 ? data.state.player1 : "",
     player2: data.state.player2 ? data.state.player2 : "",
     player3: data.state.player3 ? data.state.player3 : "",
@@ -144,7 +145,7 @@ function BookForm() {
         </label>
         <input id="submit" className="form__submit" type="submit" name="Add" />
       </form>
-      <button onClick={() => deleteItem(currentItem.id, history)}>
+      <button onClick={() => deleteItem(currentItem.id, history, formDel)}>
         Delete
       </button>
     </div>

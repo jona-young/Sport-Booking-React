@@ -31,6 +31,7 @@ export const bookedCourt = (
   deleteItem,
   history
 ) => {
+  const formDel = false;
   timeSlots.push(
     <div className="sched__col cell" key={courtCode} name={i}>
       {courtBookings[bx].player1}
@@ -62,10 +63,11 @@ export const bookedCourt = (
       >
         Edit Booking
       </Link>
-      <button onClick={() => deleteItem(courtBookings[bx].id, history)}>
+      <button
+        onClick={() => deleteItem(courtBookings[bx].id, history, formDel)}
+      >
         Delete
       </button>
-      {console.log(courtBookings[bx].id)}
     </div>
   );
 };

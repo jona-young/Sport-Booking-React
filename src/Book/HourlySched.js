@@ -23,7 +23,6 @@ function HourlySched({ curDate, courtBookings }) {
   while (curTime <= endTime) {
     const courtTime = format(curTime, "p");
     const courtDate = format(curTime, "yyyy-MM-d");
-    console.log(courtTime);
 
     //Sets # of columns, in this case 5 for time and 4 courts
     for (let i = 0; i < 5; i++) {
@@ -36,6 +35,12 @@ function HourlySched({ curDate, courtBookings }) {
         //If no court bookings on the day, fill every cell with bookACourt
         if (courtBookings.length === 0) {
           bookACourt(timeSlots, courtCode, courtTime, courtDate, i);
+        } else if (courtBookings.code === "token_not_valid") {
+          timeSlots.push(
+            <div className="sched__col cell" key={courtCode}>
+              Please Login
+            </div>
+          )
           //If there are court bookings on the day
         } else {
           //Cycles through each court booking to match to time and court cell

@@ -6,6 +6,8 @@ import Home from "./General/Home.js";
 import Blog from "./General/Blog.js";
 import Schedule from "./Book/Schedule.js";
 import BookForm from "./Book/BookForm.js";
+import Register from "./Users/Register.js";
+import Login from "./Users/Login.js";
 import "./App.css";
 
 function App() {
@@ -40,7 +42,12 @@ function App() {
           </Route>
           <Route path="/login">
             <Header />
-            <h2>Login/Register/Logout</h2>
+            <Login />
+            <Footer />
+          </Route>
+          <Route path="/register">
+            <Header />
+            <Register />
             <Footer />
           </Route>
           <Route path="/">

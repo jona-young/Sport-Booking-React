@@ -16,7 +16,7 @@ export const getCookie = (name) => {
 };
 
 //Delete a court booking
-export const deleteItem = (courtBookingID, history) => {
+export const deleteItem = (courtBookingID, history, formDel) => {
   var csrftoken = getCookie("csrftoken");
 
   fetch(`http://127.0.0.1:8000/api/tbook-delete/${courtBookingID}/`, {
@@ -28,7 +28,11 @@ export const deleteItem = (courtBookingID, history) => {
   }).catch(function (error) {
     console.log("ERROR: ", error);
   });
-  history.push("/tennis-book");
+  if (formDel === true) {
+    history.push("/tennis-book");
+  } else if (formDel === false) {
+    window.location.reload(false);
+  }
 };
 
 //Function to update currentItem based off changes in each individual form field
