@@ -7,6 +7,10 @@
     float: left;
 }
 
+.home__heading {
+    padding-left: 2rem;
+}
+
 .home__mainLink {
     text-decoration: none;
     color: black;

@@ -1,8 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React  from "react";
+import { Link, useHistory } from "react-router-dom";
+
+import { axiosInstance } from "../Users/axiosApi.js";
 import "./Header.css";
 
 function Header() {
+  let history = useHistory();
+  const handleLogout = () => {
+      try {
+          axiosInstance.post('/blacklist/', {
+              "refresh_token": localStorage.getItem("refresh_token")
+          }).then((response) => {
+              localStorage.removeItem('access_token');
+              localStorage.removeItem('refresh_token')
+              axiosInstance.defaults.headers['Authorization'] = null
+              return response;
+          })
+      }
+      catch (e) {
+          console.log(e)
+      }
+      history.push("/")
+    }
+
   return (
     <nav className="header">
       <div className="header__optionMain">
@@ -40,6 +60,7 @@ function Header() {
           Register
           {/* Also have to figure out Logout */}{" "}
         </Link>
+        <button onClick={handleLogout}>Logout</button>
       </div>
     </nav>
   );

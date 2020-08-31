@@ -14,6 +14,22 @@ function Schedule() {
 
   return (
     <div className="calendar__month">
+      <div className="schedule__header">
+        *DISCLAIMER*
+        <p className="schedule__disclaimer">
+          Frame is setup with JWT Authentication. Please login using,
+          <br />
+          <br />
+          <span className="schedule__disclaimerLogin">
+            username - frameuser
+            <br />
+            password- frameuser
+          </span>
+          <br />
+          <br />
+          Or feel free to create your own account!
+        </p>
+      </div>
       <MonthHeader curDate={currentDate} onDateUpdate={updateDate} />
       <DayHeader curDate={currentDate} onDateUpdate={updateDate} />
       <CourtNumbers />

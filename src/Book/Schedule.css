@@ -20,14 +20,23 @@
 * {
     box-sizing: border-box;
 }
-sched__body {
+
+.sched__body {
+    width: 1500px;
     font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     font-size: 1em;
     font-weight: 300;
     line-height: 1.5;
     position: relative;
 }
-schedule__header {
+
+.sched__bodyLogin {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    font-weight: bolder;
+}
+
+.schedule__header {
     display: block;
     width: 100%;
     padding: 1.75em 0;
@@ -35,15 +44,25 @@ schedule__header {
     background: white;
 }
 
+.schedule__disclaimer{
+    font-size: small;
+    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: lighter;
+    text-transform: capitalize;
+}
+
+.schedule__disclaimerLogin {
+    text-transform: lowercase;
+}
 
 /* GRID */
 .sched__row {
+    width: 1500px;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
     font-size: medium;
 }
 .row-middle {
@@ -52,7 +71,7 @@ schedule__header {
 .sched__colHead {
     flex-grow: 1;
     flex-basis: 0;
-    max-width: 100%;
+    width: 1500px;
 }
 
 .sched__col {
@@ -61,7 +80,7 @@ schedule__header {
     flex-wrap: wrap;
     flex-grow: 1;
     flex-basis: 0;
-    max-width: 100%;
+    width: 1500px;
     border-bottom: 2px solid black;
     font-family: "Baloo Tamma 2", sans-serif;
 }
@@ -91,18 +110,19 @@ schedule__header {
 .calendar__month {
     display: block;
     position: relative;
-    width: 90%;
-    background: white;
-    border: 1px solid lightgray;
+    width: 1506px;
+    background: #FCFCFC;
+    border: 3px solid black;
+
     height: auto;
     margin:0 auto;
 }
 .calendar__month .schedule__header {
     text-transform: uppercase;
+    background: #FCFCFC;
     font-weight: 700;
     font-size: 115%;
     padding: 1.5em 0;
-    border-bottom: 1px solid lightgray;
 }
 .calendar__month .schedule__header .icon {
     cursor: pointer;

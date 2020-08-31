@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { handleChange, handleLoginSubmit } from "./authenticationFunctions.js";
 import { useHistory } from "react-router-dom";
-
 import "./Login.css";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState();
+
   let history = useHistory();
 
   const onUsernameUpdate = (value) => {
@@ -17,10 +19,16 @@ function Login() {
     setPassword(value);
   };
 
+  const onErrorUpdate = (value) => {
+    setErrors(value);
+  }
+
   return (
-    <div>
-      Login
-      <form onSubmit={(e) => handleLoginSubmit(e, username, password, history)}>
+    <div className="login">
+      <p>{ errors ? errors : null }</p>
+
+      <form className="login__form" onSubmit={(e) => handleLoginSubmit(e, username, password, history, onErrorUpdate)}>
+        <h1>Login</h1>
         <label>
           Username:
           <input
@@ -43,8 +51,9 @@ function Login() {
             }
           />
         </label>
-        <input type="submit" value="Submit" />
+        <input className="login__formSubmit" type="submit" value="Submit" />
       </form>
+      <p><Link className="sched__linkBook" to="/register">Click Here to Register.</Link></p>
     </div>
   );
 }

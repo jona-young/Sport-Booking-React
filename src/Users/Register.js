@@ -27,9 +27,10 @@ function Register() {
   }
 
   return (
-    <div>
-      Register
-      <form onSubmit={(e) => handleRegisterSubmit(e, username, password, email, history, onErrorUpdate)}>
+    <div className="register">
+      <p>{ errors ? errors : null }</p>
+      <form className="register__form" onSubmit={(e) => handleRegisterSubmit(e, username, password, email, history, onErrorUpdate)}>
+        <h1>Register</h1>
         <label>
           Username:
           <input
@@ -40,10 +41,10 @@ function Register() {
               handleChange(e, onUsernameUpdate, onPasswordUpdate, onEmailUpdate)
             }
           />
-          {errors ? errors : null}
         </label>
         <label>
           Email:
+          <br />
           <input
             name="email"
             type="email"

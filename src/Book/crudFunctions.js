@@ -1,3 +1,5 @@
+import { axiosInstance } from "../Users/axiosApi.js";
+
 //Cross Site Request Forgery Protection as per Django Docs
 export const getCookie = (name) => {
   let cookieValue = null;
@@ -19,15 +21,11 @@ export const getCookie = (name) => {
 export const deleteItem = (courtBookingID, history, formDel) => {
   var csrftoken = getCookie("csrftoken");
 
-  fetch(`http://127.0.0.1:8000/api/tbook-delete/${courtBookingID}/`, {
-    method: "DELETE",
-    headers: {
-      "Content-type": "application/json",
-      "X-CSRFToken": csrftoken,
-    },
-  }).catch(function (error) {
-    console.log("ERROR: ", error);
-  });
+  axiosInstance.delete(`http://127.0.0.1:8000/api/tbook-delete/${courtBookingID}/`)
+      .catch((error) => {
+        console.log("delItemErr: ", error)
+      })
+
   if (formDel === true) {
     history.push("/tennis-book");
   } else if (formDel === false) {
@@ -39,7 +37,6 @@ export const deleteItem = (courtBookingID, history, formDel) => {
 export const handleChange = (e, updateItem, currentItem) => {
   const name = e.target.name;
   const value = e.target.value;
-  console.log("changes getting to func");
 
   if (name === "player1") {
     updateItem({ ...currentItem, [name]: value, author: value });
@@ -57,25 +54,16 @@ export const handleChange = (e, updateItem, currentItem) => {
 //Submits the form to DRF API, sets currentItem back to blank, and redirects to court booking page
 export const handleSubmit = (e, currentItem, data, history) => {
   e.preventDefault();
-  console.log("ITEM: ", currentItem);
+  var newUrl = "/tbook-create/";
 
-  var csrftoken = getCookie("csrftoken");
-  var url = "http://127.0.0.1:8000/api/tbook-create/";
-
-  //TODO: If edit val is true then delete the entry by PK ID then create again
   if (data.state.edit_val === true) {
-    url = `http://127.0.0.1:8000/api/tbook-update/${currentItem.id}/`;
+    newUrl = `/tbook-update/${currentItem.id}/`;
   }
 
-  fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-      "X-CSRFToken": csrftoken,
-    },
-    body: JSON.stringify(currentItem),
-  }).catch(function (error) {
-    console.log("ERROR: ", error);
-  });
+  axiosInstance.post(newUrl, currentItem)
+      .catch((error) => {
+      console.log("delItemErr: ", error)
+  })
   history.push("/tennis-book");
+
 };
