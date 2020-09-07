@@ -19,12 +19,11 @@ export const getCookie = (name) => {
 
 //Delete a court booking
 export const deleteItem = (courtBookingID, history, formDel) => {
-  var csrftoken = getCookie("csrftoken");
-
-  axiosInstance.delete(`http://127.0.0.1:8000/api/tbook-delete/${courtBookingID}/`)
-      .catch((error) => {
-        console.log("delItemErr: ", error)
-      })
+  axiosInstance
+    .delete(`http://127.0.0.1:8000/api/tbook-delete/${courtBookingID}/`)
+    .catch((error) => {
+      console.log("delItemErr: ", error);
+    });
 
   if (formDel === true) {
     history.push("/tennis-book");
@@ -60,10 +59,8 @@ export const handleSubmit = (e, currentItem, data, history) => {
     newUrl = `/tbook-update/${currentItem.id}/`;
   }
 
-  axiosInstance.post(newUrl, currentItem)
-      .catch((error) => {
-      console.log("delItemErr: ", error)
-  })
+  axiosInstance.post(newUrl, currentItem).catch((error) => {
+    console.log("delItemErr: ", error);
+  });
   history.push("/tennis-book");
-
 };

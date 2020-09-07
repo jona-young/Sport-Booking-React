@@ -19,6 +19,8 @@
 /* GENERAL */
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 .sched__body {
@@ -118,7 +120,7 @@
     margin:0 auto;
 }
 .calendar__month .schedule__header {
-    text-transform: uppercase;
+    text-transform: Capitalize;
     background: #FCFCFC;
     font-weight: 700;
     font-size: 115%;

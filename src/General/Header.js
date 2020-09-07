@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import { axiosInstance } from "../Users/axiosApi.js";
@@ -7,21 +7,22 @@ import "./Header.css";
 function Header() {
   let history = useHistory();
   const handleLogout = () => {
-      try {
-          axiosInstance.post('/blacklist/', {
-              "refresh_token": localStorage.getItem("refresh_token")
-          }).then((response) => {
-              localStorage.removeItem('access_token');
-              localStorage.removeItem('refresh_token')
-              axiosInstance.defaults.headers['Authorization'] = null
-              return response;
-          })
-      }
-      catch (e) {
-          console.log(e)
-      }
-      history.push("/")
+    try {
+      axiosInstance
+        .post("/blacklist/", {
+          refresh_token: localStorage.getItem("refresh_token"),
+        })
+        .then((response) => {
+          localStorage.removeItem("access_token");
+          localStorage.removeItem("refresh_token");
+          axiosInstance.defaults.headers["Authorization"] = null;
+          return response;
+        });
+    } catch (e) {
+      console.log(e);
     }
+    history.push("/");
+  };
 
   return (
     <nav className="header">
@@ -54,11 +55,9 @@ function Header() {
       <div className="header__optionEnd">
         <Link className="header__linkEnd" to="/login">
           Login
-          {/* Also have to figure out Logout */}{" "}
         </Link>
         <Link className="header__linkEnd" to="/register">
           Register
-          {/* Also have to figure out Logout */}{" "}
         </Link>
         <button onClick={handleLogout}>Logout</button>
       </div>
