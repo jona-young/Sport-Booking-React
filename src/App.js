@@ -9,6 +9,7 @@ import Schedule from "./Book/Schedule.js";
 import BookForm from "./Book/BookForm.js";
 import Register from "./Users/Register.js";
 import Login from "./Users/Login.js";
+import Profile from "./Users/Profile.js";
 import "./App.css";
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
           </Route>
           <Route path="/profile">
             <Header />
-            <h2>Profile</h2>
+            <Profile />
             <Footer />
           </Route>
           <Route path="/login">

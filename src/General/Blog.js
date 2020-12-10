@@ -6,9 +6,9 @@ function Blog() {
     <div className="blog">
       <h1 className="blog__header">Blog</h1>
       <div className="blog__post">
-        <h2>The Lightweight Solution for Tennis Sport Booking</h2>
+        <h2 className="blog__mainHeading">The Lightweight Solution for Tennis Sport Booking</h2>
         <span className="blog__mainDate">By Jona Young on 14/08/2020</span>
-        <p>
+        <p className="blog__mainText">
           Frame offers a simple easy-to-use system for Sport Booking. Sign-Up
           for an account, login, and get to booking your tennis court in a short
           couple minutes!
@@ -16,9 +16,9 @@ function Blog() {
         <div className="blog__line"></div>
       </div>
       <div className="blog__post">
-        <h2>Tennis - Aim Higher</h2>
+        <h2 className="blog__mainHeading">Tennis - Aim Higher</h2>
         <span className="blog__mainDate">By Carson Timms on 02/08/2020</span>
-        <p>
+        <p className="blog__mainText">
           With clear direction, a set of measurable goals, and the ability to
           critically assess your performance and experiences, you will be on
           track to break many barriers to performance and excel in Tennis.
@@ -31,9 +31,9 @@ function Blog() {
         <div className="blog__line"></div>
       </div>
       <div className="blog__post">
-        <h2>The Shoe for You</h2>
+        <h2 className="blog__mainHeading">The Shoe for You</h2>
         <span className="blog__mainDate">By Margot Calvert on 28/07/2020</span>
-        <p>
+        <p className="blog__mainText">
           A shoe that combines comfortability, support, and proper contact to
           the ground is a keeper. For grass courts you will want outsoles with
           protruding bumps to grip on the court and provide greater traction.
@@ -49,9 +49,9 @@ function Blog() {
         <div className="blog__line"></div>
       </div>
       <div className="blog__post">
-        <h2>Whose Causing a Racket?</h2>
+        <h2 className="blog__mainHeading">Whose Causing a Racket?</h2>
         <span className="blog__mainDate">By Alicia Briggs on 22/07/2020</span>
-        <p>
+        <p className="blog__mainText">
           The Babolat Pure Strike 16x19 is a highly reccommended racket for
           intermediate to advanced tennis players that are looking for power on
           your strokes, appropriate feel on your volleys, and solid stability.
@@ -66,7 +66,7 @@ function Blog() {
       <div className="blog__post">
         <h2>Imbalance Your Muscle Imbalances for Athletic Longevity!</h2>
         <span className="blog__mainDate">By Margot Calvert on 19/07/2020</span>
-        <p>
+        <p className="blog__mainText">
           Two negatives make a positive, right? By approaching your strength
           training routine with this style you will create a more physically
           even body. The benefits of this approach are to strengthen the

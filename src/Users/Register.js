@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { handleChange, handleRegisterSubmit } from "./authenticationFunctions";
+import { handleChange, handleRegisterSubmit } from "./authenticationFunctions.js";
 import "./Register.css";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
   const [errors, setErrors] = useState();
   let history = useHistory();
 
@@ -22,6 +24,14 @@ function Register() {
     setEmail(value);
   };
 
+  const onFnameUpdate = (value) => {
+    setFname(value);
+  }
+
+  const onLnameUpdate = (value) => {
+    setLname(value);
+  }
+
   const onErrorUpdate = (value) => {
     setErrors(value);
   }
@@ -29,7 +39,7 @@ function Register() {
   return (
     <div className="register">
       <p>{ errors ? errors : null }</p>
-      <form className="register__form" onSubmit={(e) => handleRegisterSubmit(e, username, password, email, history, onErrorUpdate)}>
+      <form className="register__form" onSubmit={(e) => handleRegisterSubmit(e, username, password, email, fname, lname, history, onErrorUpdate)}>
         <h1>Register</h1>
         <label>
           Username:
@@ -38,7 +48,7 @@ function Register() {
             type="text"
             value={username}
             onChange={(e) =>
-              handleChange(e, onUsernameUpdate, onPasswordUpdate, onEmailUpdate)
+              handleChange(e, onUsernameUpdate, onPasswordUpdate, onEmailUpdate, onFnameUpdate, onLnameUpdate)
             }
           />
         </label>
@@ -50,7 +60,7 @@ function Register() {
             type="email"
             value={email}
             onChange={(e) =>
-              handleChange(e, onUsernameUpdate, onPasswordUpdate, onEmailUpdate)
+                handleChange(e, onUsernameUpdate, onPasswordUpdate, onEmailUpdate, onFnameUpdate, onLnameUpdate)
             }
           />
         </label>
@@ -61,8 +71,30 @@ function Register() {
             type="password"
             value={password}
             onChange={(e) =>
-              handleChange(e, onUsernameUpdate, onPasswordUpdate, onEmailUpdate)
+                handleChange(e, onUsernameUpdate, onPasswordUpdate, onEmailUpdate, onFnameUpdate, onLnameUpdate)
             }
+          />
+        </label>
+        <label>
+          First Name:
+          <input
+              name="fname"
+              type="text"
+              value={fname}
+              onChange={(e) =>
+                  handleChange(e, onUsernameUpdate, onPasswordUpdate, onEmailUpdate, onFnameUpdate, onLnameUpdate)
+              }
+          />
+        </label>
+        <label>
+          Last Name:
+          <input
+              name="lname"
+              type="text"
+              value={lname}
+              onChange={(e) =>
+                  handleChange(e, onUsernameUpdate, onPasswordUpdate, onEmailUpdate, onFnameUpdate, onLnameUpdate)
+               }
           />
         </label>
         <input type="submit" value="Submit" />

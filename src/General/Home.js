@@ -9,7 +9,7 @@ function Home() {
           <Link className="home__mainLink" to="/blog">
             <h1 className="home__heading">The Lightweight Solution for Tennis Sport Booking</h1>
             <span className="home__mainDate">By Jona Young on 14/08/2020</span>
-            <p>
+            <p className="home__mainText">
               Frame offers a simple easy-to-use system for Sport Booking. Sign-Up
               for an account, login, and get to booking your tennis court in a
               short couple minutes!

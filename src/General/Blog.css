@@ -25,12 +25,23 @@
     margin-left: 2rem;
 }
 
+.blog__mainHeading {
+    margin-left: 2rem;
+}
+
 .blog__mainDate {
     font-family: 'Montserrat', sans-serif;
     margin-left: 2rem;
     margin-right: 5rem;
     font-size: small;
 }
+
+.blog__mainText {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
  .blog__line {
      border-bottom: 2px solid;
      margin-left: 2rem;

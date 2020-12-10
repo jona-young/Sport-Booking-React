@@ -5,7 +5,9 @@ export const handleChange = (
   e,
   onUsernameUpdate,
   onPasswordUpdate,
-  onEmailUpdate
+  onEmailUpdate,
+  onFnameUpdate,
+  onLnameUpdate
 ) => {
   const name = e.target.name;
   const value = e.target.value;
@@ -16,6 +18,10 @@ export const handleChange = (
     onPasswordUpdate(value);
   } else if (name === "email") {
     onEmailUpdate(value);
+  } else if (name === "fname") {
+    onFnameUpdate(value);
+  } else if (name === 'lname') {
+    onLnameUpdate(value);
   }
 };
 
@@ -44,13 +50,15 @@ export const handleLoginSubmit = (e, username, password, history, onErrorUpdate)
 
 }
 
-export const handleRegisterSubmit = (e, username, password, email, history, onErrorUpdate) => {
+export const handleRegisterSubmit = (e, username, password, email, fname, lname, history, onErrorUpdate) => {
   e.preventDefault();
 
     axiosInstance.post('/user/create/', {
       username: username,
       email: email,
-      password: password
+      password: password,
+      first_name: fname,
+      last_name: lname
     }).then((response) => {
       history.push("/tennis-book");
       return response;

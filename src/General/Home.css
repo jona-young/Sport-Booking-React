@@ -32,6 +32,12 @@
     font-size: small;
 }
 
+.home__mainText {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
 .home__mainSpan {
     font-family: 'Montserrat', sans-serif;
     margin-left: 2rem;

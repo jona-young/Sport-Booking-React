@@ -3,7 +3,6 @@ import { deleteItem, handleChange, handleSubmit } from "./crudFunctions.js";
 import { useHistory, useLocation } from "react-router-dom";
 import "./BookForm.css";
 
-//TODO: Figure out how to pass courtbooking cell values depending on court number and time to the form...
 function BookForm() {
   let history = useHistory();
   let data = useLocation();
