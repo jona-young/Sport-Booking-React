@@ -35,10 +35,18 @@ export const handleLoginSubmit = (e, username, password, history, onErrorUpdate)
       axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
+
+      //Pulls the user id with the goal to access user profile in django api
+      const tokenParts = response.data.access.split('.');
+      const encodedPayload = tokenParts[1];
+      const rawPayload = atob(encodedPayload);
+      const user = JSON.parse(rawPayload);
+      localStorage.setItem('user_id', user.user_id);
+
       history.push("/tennis-book");
       return response;
     }).catch (error => {
-      console.log(error.response)
+      console.log('error response ', error)
       if (error.response.status === 401) {
         onErrorUpdate("Either the username or password you entered was incorrect. Please try again.")
       } else if (error.request) {
@@ -77,3 +85,4 @@ export const handleRegisterSubmit = (e, username, password, email, fname, lname,
     }
   })
 }
+

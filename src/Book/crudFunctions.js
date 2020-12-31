@@ -1,4 +1,18 @@
 import { axiosInstance } from "../Users/axiosApi.js";
+import format from "date-fns/format";
+
+//Pulls booking list from DRF API on curDate
+export const axiosBookingss = (curDate, onCourtBookingUpdate) => {
+  const urlDateFormat = "yyyy-MM-d";
+
+  axiosInstance.get(`http://127.0.0.1:8000/api/tbook-list/${format(curDate, urlDateFormat)}/`)
+      .then((response) => {
+        onCourtBookingUpdate(response.data)
+      }).catch ((error) => {
+    console.log(error.response)
+    throw error;
+  })
+};
 
 //Delete a court booking
 export const deleteItem = (courtBookingID, history, formDel) => {

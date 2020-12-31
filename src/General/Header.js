@@ -15,6 +15,7 @@ function Header() {
         .then((response) => {
           localStorage.removeItem("access_token");
           localStorage.removeItem("refresh_token");
+          localStorage.removeItem('user_id')
           axiosInstance.defaults.headers["Authorization"] = null;
           return response;
         });
