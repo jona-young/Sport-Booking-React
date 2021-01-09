@@ -1,6 +1,20 @@
 import { axiosInstance } from "./axiosApi.js";
 
 
+//Pulls profile from DRF API on localStorage user_id
+export const getProfile = (onProfileUpdate) => {
+  const user_id = localStorage.getItem('user_id')
+
+  axiosInstance.get(`http://127.0.0.1:8000/api/profile/${user_id}/`)
+      .then((response) => {
+        console.log(response.data)
+        onProfileUpdate(response.data)
+      }).catch ((error) => {
+        console.log(error.response)
+        throw error;
+  })
+}
+
 export const handleChange = (
   e,
   onUsernameUpdate,

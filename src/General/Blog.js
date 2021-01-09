@@ -64,7 +64,7 @@ function Blog() {
         <div className="blog__line"></div>
       </div>
       <div className="blog__post">
-        <h2>Imbalance Your Muscle Imbalances for Athletic Longevity!</h2>
+        <h2 className="blog__mainHeading">Imbalance Your Muscle Imbalances for Athletic Longevity!</h2>
         <span className="blog__mainDate">By Margot Calvert on 19/07/2020</span>
         <p className="blog__mainText">
           Two negatives make a positive, right? By approaching your strength

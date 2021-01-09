@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./General/Header.js";
-import Footer from "./General/Footer.js";
 import Home from "./General/Home.js";
 import Blog from "./General/Blog.js";
 import About from "./General/About.js";
@@ -20,42 +19,34 @@ function App() {
           <Route path="/blog">
             <Header />
             <Blog />
-            <Footer />
           </Route>
           <Route path="/about">
             <Header />
             <About />
-            <Footer />
           </Route>
           <Route path="/tennis-book">
             <Header />
             <Schedule />
-            <Footer />
           </Route>
           <Route path="/tennis-form">
             <Header />
             <BookForm />
-            <Footer />
           </Route>
           <Route path="/profile">
             <Header />
             <Profile />
-            <Footer />
           </Route>
           <Route path="/login">
             <Header />
             <Login />
-            <Footer />
           </Route>
           <Route path="/register">
             <Header />
             <Register />
-            <Footer />
           </Route>
           <Route path="/">
             <Header />
             <Home />
-            <Footer />
           </Route>
         </Switch>
       </div>
