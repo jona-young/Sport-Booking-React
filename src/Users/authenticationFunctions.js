@@ -5,7 +5,7 @@ import { axiosInstance } from "./axiosApi.js";
 export const getProfile = (onProfileUpdate) => {
   const user_id = localStorage.getItem('user_id')
 
-  axiosInstance.get(`http://127.0.0.1:8000/api/profile/${user_id}/`)
+  axiosInstance.get(`/profile/${user_id}/`)
       .then((response) => {
         console.log(response.data)
         onProfileUpdate(response.data)

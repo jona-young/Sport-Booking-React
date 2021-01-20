@@ -5,7 +5,7 @@ import format from "date-fns/format";
 export const axiosBookingss = (curDate, onCourtBookingUpdate) => {
   const urlDateFormat = "yyyy-MM-d";
 
-  axiosInstance.get(`http://127.0.0.1:8000/api/tbook-list/${format(curDate, urlDateFormat)}/`)
+  axiosInstance.get(`/tbook-list/${format(curDate, urlDateFormat)}/`)
       .then((response) => {
         onCourtBookingUpdate(response.data)
       }).catch ((error) => {
@@ -17,7 +17,7 @@ export const axiosBookingss = (curDate, onCourtBookingUpdate) => {
 //Delete a court booking
 export const deleteItem = (courtBookingID, history, formDel) => {
   axiosInstance
-    .delete(`http://127.0.0.1:8000/api/tbook-delete/${courtBookingID}/`)
+    .delete(`/tbook-delete/${courtBookingID}/`)
     .catch((error) => {
       console.log("delItemErr: ", error);
     });
